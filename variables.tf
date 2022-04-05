@@ -28,5 +28,9 @@ variable "route_id" {
   type        = string
   default     = "learn-hvn-route"
 }
+variable "owner" {
+  description = "Owner tag on all resources."
+  default     = "myuser"
+}
 variable "hcp_client_id" {}
 variable "hcp_client_secret" {}

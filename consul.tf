@@ -15,3 +15,7 @@ resource "hcp_consul_cluster" "example_hcp" {
   tier       = "development"
   #   public_endpoint = true
 }
+
+resource "hcp_consul_cluster_root_token" "token" {
+  cluster_id = hcp_consul_cluster.example_hcp.id
+}

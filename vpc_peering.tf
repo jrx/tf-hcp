@@ -46,3 +46,26 @@ resource "aws_route" "peer_route" {
   destination_cidr_block    = hcp_hvn.example_hvn.cidr_block
   vpc_peering_connection_id = hcp_aws_network_peering.peer.provider_peering_id
 }
+
+resource "aws_security_group" "default" {
+  name   = "${var.cluster_id}_default"
+  vpc_id = data.terraform_remote_state.vpc.outputs.aws_vpc_id
+
+  ingress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["172.25.16.0/20"]
+  }
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name  = "sg-${var.cluster_id}"
+    Owner = var.owner
+  }
+}
