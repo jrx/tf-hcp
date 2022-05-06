@@ -10,12 +10,12 @@ resource "hcp_hvn" "example_hvn" {
 }
 
 resource "hcp_consul_cluster" "example_hcp" {
-  hvn_id          = hcp_hvn.example_hvn.hvn_id
-  cluster_id      = var.cluster_id
-  tier            = "plus"
-  size            = "small"
-  public_endpoint = true
-  min_consul_version = var.min_consul_version 
+  hvn_id             = hcp_hvn.example_hvn.hvn_id
+  cluster_id         = var.cluster_id
+  tier               = "plus"
+  size               = "small"
+  public_endpoint    = true
+  min_consul_version = var.min_consul_version
 }
 
 resource "hcp_consul_cluster_root_token" "token" {

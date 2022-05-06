@@ -32,9 +32,9 @@ variable "owner" {
   description = "Owner tag on all resources."
   default     = "myuser"
 }
-variable "min_consul_version " {
+variable "min_consul_version" {
   description = "The minimum Consul version of the cluster."
-  type = "string"
+  type        = string
   default     = ""
 }
 variable "hcp_client_id" {}
