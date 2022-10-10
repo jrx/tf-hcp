@@ -3,11 +3,6 @@ variable "hvn_id" {
   type        = string
   default     = "learn-hvn"
 }
-variable "cluster_id" {
-  description = "The ID of the HCP Consul cluster."
-  type        = string
-  default     = "learn-hcp-consul"
-}
 variable "region" {
   description = "The region of the HCP HVN and Consul cluster."
   type        = string
@@ -32,10 +27,20 @@ variable "owner" {
   description = "Owner tag on all resources."
   default     = "myuser"
 }
+variable "hcp_client_id" {}
+variable "hcp_client_secret" {}
+variable "consul_enabled" {
+  type        = bool
+  description = "Deploy the HCP Consul"
+  default     = false
+}
+variable "consul_cluster_id" {
+  description = "The ID of the HCP Consul cluster."
+  type        = string
+  default     = "test-hcp-consul"
+}
 variable "min_consul_version" {
   description = "The minimum Consul version of the cluster."
   type        = string
   default     = ""
 }
-variable "hcp_client_id" {}
-variable "hcp_client_secret" {}

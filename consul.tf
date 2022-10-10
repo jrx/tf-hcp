@@ -10,8 +10,9 @@ resource "hcp_hvn" "example_hvn" {
 }
 
 resource "hcp_consul_cluster" "example_hcp" {
+  count              = (var.consul_enabled == true ? 1 : 0)
   hvn_id             = hcp_hvn.example_hvn.hvn_id
-  cluster_id         = var.cluster_id
+  cluster_id         = var.consul_cluster_id
   tier               = "plus"
   size               = "small"
   public_endpoint    = true
@@ -19,5 +20,6 @@ resource "hcp_consul_cluster" "example_hcp" {
 }
 
 resource "hcp_consul_cluster_root_token" "token" {
-  cluster_id = hcp_consul_cluster.example_hcp.id
+  count      = (var.consul_enabled == true ? 1 : 0)
+  cluster_id = hcp_consul_cluster.example_hcp[count.index].id
 }

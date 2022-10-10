@@ -48,7 +48,7 @@ resource "aws_route" "peer_route" {
 }
 
 resource "aws_security_group" "default" {
-  name   = "${var.cluster_id}_default"
+  name   = "${var.hvn_id}_default"
   vpc_id = data.terraform_remote_state.vpc.outputs.aws_vpc_id
 
   ingress {
@@ -71,7 +71,7 @@ resource "aws_security_group" "default" {
   }
 
   tags = {
-    Name  = "sg-${var.cluster_id}"
+    Name  = "sg-${var.hvn_id}"
     Owner = var.owner
   }
 }
