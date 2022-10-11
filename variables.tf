@@ -29,6 +29,8 @@ variable "owner" {
 }
 variable "hcp_client_id" {}
 variable "hcp_client_secret" {}
+
+# Consul
 variable "consul_enabled" {
   type        = bool
   description = "Deploy the HCP Consul"
@@ -41,6 +43,23 @@ variable "consul_cluster_id" {
 }
 variable "min_consul_version" {
   description = "The minimum Consul version of the cluster."
+  type        = string
+  default     = ""
+}
+
+# Vault
+variable "vault_enabled" {
+  type        = bool
+  description = "Deploy the HCP Vault"
+  default     = false
+}
+variable "vault_cluster_id" {
+  description = "The ID of the HCP Vault cluster."
+  type        = string
+  default     = "test-hcp-vault"
+}
+variable "min_vault_version" {
+  description = "The minimum Vault version of the cluster."
   type        = string
   default     = ""
 }
