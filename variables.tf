@@ -46,6 +46,11 @@ variable "min_consul_version" {
   type        = string
   default     = ""
 }
+variable "consul_public_endpoint" {
+  type        = bool
+  description = "Deploy with Public DNS Endpoint."
+  default     = false
+}
 
 # Vault
 variable "vault_enabled" {
@@ -62,4 +67,9 @@ variable "min_vault_version" {
   description = "The minimum Vault version of the cluster."
   type        = string
   default     = ""
+}
+variable "vault_public_endpoint" {
+  type        = bool
+  description = "Deploy with Public DNS Endpoint."
+  default     = false
 }
