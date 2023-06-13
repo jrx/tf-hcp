@@ -73,3 +73,15 @@ variable "vault_public_endpoint" {
   description = "Deploy with Public DNS Endpoint."
   default     = false
 }
+
+# Vault Secrets 
+variable "vault_secrets_sync_enabled" {
+  type        = bool
+  description = "Deploy an IAM role for Vault Secrets Sync"
+  default     = false
+}
+variable "vault_secrets_external_id" {
+  type        = string
+  description = "External ID to securely delegate access to HCP Vault Secrets"
+  sensitive   = true
+}

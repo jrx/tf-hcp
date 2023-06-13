@@ -50,3 +50,10 @@ output "vault_root_token" {
   value     = hcp_vault_cluster_admin_token.token.*.token
   sensitive = true
 }
+
+# Vault Secrets
+
+output "vault_secrets_role_arn" {
+  description = "Role ARN to configure the AWS Secrets Manager Integration"
+  value       = aws_iam_role.hashicorp_vault_secrets_role.*.arn
+}
