@@ -44,7 +44,8 @@ variable "consul_cluster_id" {
 variable "min_consul_version" {
   description = "The minimum Consul version of the cluster."
   type        = string
-  default     = ""
+  nullable    = true
+  default     = null
 }
 variable "consul_public_endpoint" {
   type        = bool
@@ -66,7 +67,8 @@ variable "vault_cluster_id" {
 variable "min_vault_version" {
   description = "The minimum Vault version of the cluster."
   type        = string
-  default     = ""
+  nullable    = true
+  default     = null
 }
 variable "vault_public_endpoint" {
   type        = bool

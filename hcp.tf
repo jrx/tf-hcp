@@ -32,7 +32,7 @@ resource "hcp_vault_cluster" "vault_hcp" {
   public_endpoint   = var.vault_public_endpoint
   min_vault_version = var.min_vault_version
   major_version_upgrade_config {
-    upgrade_type = "MANUAL"
+    upgrade_type = "AUTOMATIC"
   }
 }
 
