@@ -75,6 +75,11 @@ variable "vault_public_endpoint" {
   description = "Deploy with Public DNS Endpoint."
   default     = false
 }
+variable "vault_proxy_endpoint" {
+  type        = string
+  description = "Deploy with Proxy Endpoint. Valid options are ENABLED, DISABLED."
+  default     = "DISABLED"
+}
 
 # Vault Secrets 
 variable "vault_secrets_sync_enabled" {
